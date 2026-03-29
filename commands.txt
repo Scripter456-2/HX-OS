@@ -1,0 +1,12 @@
+# 1. Install deps
+sudo apt install -y build-essential dotnet-sdk-8.0 \
+  xorriso grub-pc-bin grub-efi-amd64-bin \
+  chromium-browser xorg cpio gzip qemu-system-x86
+
+# 2. Unzip into your shared folder, then:
+cd /mnt/hxos/build
+chmod +x build.sh
+./build.sh
+
+# 3. Test
+qemu-system-x86_64 -cdrom ../HX-OS.iso -m 4G -enable-kvm -vga virtio
